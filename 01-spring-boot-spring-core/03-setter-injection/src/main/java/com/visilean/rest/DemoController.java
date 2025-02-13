@@ -9,10 +9,10 @@ import com.visilean.commons.Coach;
 @RestController
 public class DemoController {
 
-	// private field for the constructor
+	// private field for the setter
 	private Coach myCoach;
 
-	// define a constructor for dependency injection
+	// define a setter method for dependency injection
 	@Autowired
 	public void setCoach(Coach theCoach) {
 		myCoach = theCoach;
