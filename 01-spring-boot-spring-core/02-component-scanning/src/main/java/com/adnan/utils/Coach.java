@@ -1,4 +1,4 @@
-package com.visilean.spring.utils;
+package com.adnan.utils;
 
 public interface Coach {
 	
