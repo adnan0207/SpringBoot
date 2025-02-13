@@ -15,7 +15,7 @@ public class DemoController {
 
 	// define a constructor for dependency injection
 	@Autowired
-	public DemoController(Coach theCoach) { 			// automatically primary bean will be injected here
+	public DemoController(@Qualifier("footballCoach") Coach theCoach) {  // @Qualifier has more priority compared to @Primary
 		this.myCoach = theCoach;
 	}
 
