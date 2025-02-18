@@ -29,4 +29,10 @@ public class StudentDAOImple implements StudentDAO{
 		entityManager.persist(student);
 	}
 
+	// implementing find by id method
+	
+	public Student findById(int id) {
+		return entityManager.find(Student.class, id);
+	}
+
 }

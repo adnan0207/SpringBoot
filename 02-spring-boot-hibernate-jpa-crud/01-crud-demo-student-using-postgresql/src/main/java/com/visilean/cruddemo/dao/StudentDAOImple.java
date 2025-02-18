@@ -9,24 +9,28 @@ import com.visilean.cruddemo.entity.Student;
 import jakarta.persistence.EntityManager;
 
 @Repository
-public class StudentDAOImple implements StudentDAO{
+public class StudentDAOImple implements StudentDAO {
 
 	// defining field for entity manager
-	
+
 	EntityManager entityManager;
-	
+
 	// injecting entity manager using constructor injection
 
 	@Autowired
 	public StudentDAOImple(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
-	
+
 	// implementing save method
-	
+
 	@Transactional
 	public void save(Student student) {
 		entityManager.persist(student);
+	}
+
+	public Student findById(int id) {
+		return entityManager.find(Student.class, id);
 	}
 
 }
