@@ -14,10 +14,27 @@ public class Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-	
+
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
-		return runner -> createStudent(studentDAO);
+		return runner -> {
+			// createStudent(studentDAO)
+			createMultipleStudent(studentDAO);
+		};
+	}
+
+	private void createMultipleStudent(StudentDAO studentDAO) {
+		// creating multiple student object
+		System.out.println("Creating new multiple student");
+		Student stuOne = new Student("Raman", "Sharma", "ramansharma@gmail.com");
+		Student stuTwo = new Student("Harsh", "Tomar", "harshtomar@gmail.com");
+		Student stuThree = new Student("Abhay", "Rajawat", "abhayrajawat@gmail.com");
+
+		// saving multiple objects
+		System.out.println("Saving multiple student");
+		studentDAO.save(stuOne);
+		studentDAO.save(stuTwo);
+		studentDAO.save(stuThree);
 	}
 
 	private void createStudent(StudentDAO studentDAO) {
@@ -34,7 +51,7 @@ public class Application {
 		// display the id of saved student
 
 		System.out.println("The id of the student which just got saved is : " + stuTemp.getId());
-		
+
 	}
 
 }
