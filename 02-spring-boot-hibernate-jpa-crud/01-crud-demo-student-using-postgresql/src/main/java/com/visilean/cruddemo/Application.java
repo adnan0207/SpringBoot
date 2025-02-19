@@ -25,7 +25,8 @@ public class Application {
 //			readStudent(studentDAO);
 //			printAllStudent(studentDAO);
 //			findByLastName(studentDAO);
-			updateTheStudent(studentDAO);
+//			updateTheStudent(studentDAO);
+			deleteTheStudent(studentDAO);
 		};
 	}
 
@@ -103,5 +104,11 @@ public class Application {
 		myStu.setFirstName("Alpesh");
 		studentDAO.update(myStu);
 		System.out.println("Updated student : " + myStu);
+	}
+
+	private void deleteTheStudent(StudentDAO studentDAO) {
+		int stuId = 3;
+		System.out.println("Deleting the student of id : " + stuId);
+		studentDAO.delete(stuId);
 	}
 }

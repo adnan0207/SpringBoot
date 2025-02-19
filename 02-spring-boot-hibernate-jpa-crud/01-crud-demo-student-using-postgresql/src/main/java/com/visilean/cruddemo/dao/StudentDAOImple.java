@@ -54,4 +54,10 @@ public class StudentDAOImple implements StudentDAO {
 		entityManager.merge(student);
 	}
 
+	@Transactional
+	public void delete(int id) {
+		Student studentToDelete = entityManager.find(Student.class, id);
+		entityManager.remove(studentToDelete);
+	}
+
 }
