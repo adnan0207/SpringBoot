@@ -20,14 +20,14 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			// createStudent(studentDAO)
-//			createMultipleStudent(studentDAO);
+//			 createStudent(studentDAO);
+			createMultipleStudent(studentDAO);
 //			readStudent(studentDAO);
 //			printAllStudent(studentDAO);
 //			findByLastName(studentDAO);
 //			updateTheStudent(studentDAO);
 //			deleteTheStudent(studentDAO);
-			deleteAllStudents(studentDAO);
+//			deleteAllStudents(studentDAO);
 		};
 	}
 
