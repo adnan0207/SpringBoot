@@ -1,5 +1,7 @@
 package com.visilean.cruddemo;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +22,8 @@ public class Application {
 		return runner -> {
 			// createStudent(studentDAO)
 //			createMultipleStudent(studentDAO);
-			readStudent(studentDAO);
+//			readStudent(studentDAO);
+			queryForStudent(studentDAO);
 		};
 	}
 
@@ -59,7 +62,7 @@ public class Application {
 		// create a student object
 
 		System.out.println("Creating new student");
-		Student stuTemp = new Student("Mickey", "Mouse", "mickeymouse@gmail.com");
+		Student stuTemp = new Student("Minnie", "Mouse", "minniemouse@gmail.com");
 
 		// save the student object
 
@@ -76,6 +79,15 @@ public class Application {
 		Student myStudent = studentDAO.findById(stuTemp.getId());
 		System.out.println("Found the student : " + myStudent);
 
+	}
+	
+	private void queryForStudent(StudentDAO studentDAO) {
+		// get list of students
+		List<Student> allStudent = studentDAO.findAll();
+		// printing students
+		for (Student printStu : allStudent) {
+			System.out.println(printStu);
+		}
 	}
 
 }
