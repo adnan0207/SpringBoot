@@ -56,4 +56,9 @@ public class StudentDAOImple implements StudentDAO{
 		return query.getResultList();
 	}
 
+	@Transactional
+	public void update(Student student) {
+		entityManager.merge(student);
+	}
+
 }

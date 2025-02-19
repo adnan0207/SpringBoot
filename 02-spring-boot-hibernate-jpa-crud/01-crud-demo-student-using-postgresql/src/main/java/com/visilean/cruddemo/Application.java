@@ -24,7 +24,8 @@ public class Application {
 //			createMultipleStudent(studentDAO);
 //			readStudent(studentDAO);
 //			printAllStudent(studentDAO);
-			findByLastName(studentDAO);
+//			findByLastName(studentDAO);
+			updateTheStudent(studentDAO);
 		};
 	}
 
@@ -94,5 +95,13 @@ public class Application {
 		for(Student stu : byLastName) {
 			System.out.println(stu);
 		}
+	}
+
+	private void updateTheStudent(StudentDAO studentDAO) {
+		int stuId = 3;
+		Student myStu = studentDAO.findById(stuId);
+		myStu.setFirstName("Alpesh");
+		studentDAO.update(myStu);
+		System.out.println("Updated student : " + myStu);
 	}
 }
