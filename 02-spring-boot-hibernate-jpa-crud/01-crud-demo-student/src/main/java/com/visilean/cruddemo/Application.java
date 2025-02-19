@@ -23,7 +23,8 @@ public class Application {
 			// createStudent(studentDAO)
 //			createMultipleStudent(studentDAO);
 //			readStudent(studentDAO);
-			queryForStudent(studentDAO);
+//			queryForStudent(studentDAO);
+			findingByLastName(studentDAO);
 		};
 	}
 
@@ -90,4 +91,10 @@ public class Application {
 		}
 	}
 
+	private void findingByLastName(StudentDAO studentDAO) {
+		List<Student> byLastName = studentDAO.findByLastName("Mouse");
+		for(Student stu : byLastName) {
+			System.out.println(stu);
+		}
+	}
 }
