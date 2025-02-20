@@ -10,33 +10,33 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.visilean.demo.entity.Student;
 
+import jakarta.annotation.PostConstruct;
+
 @RestController
 @RequestMapping("/api")
 public class StudentRestController {
 
-	@GetMapping("/studentList")
-	public List<Student> getStudent() {
+	private List<Student> stuList;
 
-		List<Student> stuList = new ArrayList<Student>();
-		stuList.add(new Student("Adnan", "Khan"));
-		stuList.add(new Student("Abhay", "Rajawat"));
-		stuList.add(new Student("Hasrh", "Tomar"));
+	@PostConstruct
+	public void loadData() {
 
-		return stuList;
-
-	}
-
-	@GetMapping("/student/{studentId}")
-	public Student getStudentById(@PathVariable int studentId) {
-
-		List<Student> stuList = new ArrayList<Student>();
+		stuList = new ArrayList<Student>();
 
 		stuList.add(new Student("Adnan", "Khan"));
 		stuList.add(new Student("Abhay", "Rajawat"));
 		stuList.add(new Student("Harsh", "Tomar"));
 
-		return stuList.get(studentId);
+	}
 
+	@GetMapping("/studentList")
+	public List<Student> getStudent() {
+		return stuList;
+	}
+
+	@GetMapping("/student/{studentId}")
+	public Student getStudentById(@PathVariable int studentId) {
+		return stuList.get(studentId);
 	}
 
 }
