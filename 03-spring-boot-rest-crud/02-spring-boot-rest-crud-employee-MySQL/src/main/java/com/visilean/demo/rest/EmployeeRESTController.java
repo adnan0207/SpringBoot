@@ -6,24 +6,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.visilean.demo.dao.EmployeeDAOImpl;
 import com.visilean.demo.entity.Employee;
+import com.visilean.demo.service.EmployeeServiceImpl;
 
 @RestController
 @RequestMapping("/api")
 public class EmployeeRESTController {
 
-	private EmployeeDAOImpl empDAO;
+	private EmployeeServiceImpl empSer;
 
-	public EmployeeRESTController(EmployeeDAOImpl empDAO) {
-		this.empDAO = empDAO;
+	public EmployeeRESTController(EmployeeServiceImpl empSer) {
+		this.empSer = empSer;
 	}
 
 	// REST end point
 
 	@GetMapping("/employees")
-	public List<Employee> getAllEmp(){
-		return empDAO.findAll();
+	public List<Employee> getAllEmp() {
+		return empSer.findAll();
 	}
 
 }
