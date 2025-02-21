@@ -2,6 +2,7 @@ package com.visilean.demo.rest;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,6 +60,20 @@ public class EmployeeRESTController {
 		Employee updatedEmp = empSer.save(emp);
 
 		return updatedEmp;
+	}
+
+	@DeleteMapping("/employees/{employeeId}")
+	public String deleteEmployee(@PathVariable int employeeId) {
+
+		Employee tempEmp = empSer.findById(employeeId);
+
+		if (tempEmp == null) {
+			throw new RuntimeException("Employee id not found - " + employeeId);
+		}
+
+		empSer.delete(employeeId);
+
+		return "Deleted employee id + " + employeeId;
 	}
 
 }
