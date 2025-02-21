@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,6 +52,13 @@ public class EmployeeRESTController {
 		Employee dBSavedEmp = empSer.save(emp);
 
 		return dBSavedEmp;
+	}
+
+	@PutMapping("/employees")
+	public Employee updateEmployee(@RequestBody Employee emp) {
+		Employee updatedEmp = empSer.save(emp);
+
+		return updatedEmp;
 	}
 
 }
