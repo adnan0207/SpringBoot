@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,6 +38,19 @@ public class EmployeeRESTController {
 		}
 
 		return empById;
+	}
+
+	@PostMapping("/employees")
+	public Employee addEmployee(@RequestBody Employee emp) {
+
+		// in case if user has passed the id then set it to zero
+		// this is to save it as a new item instead of update
+
+		emp.setId(0);
+
+		Employee dBSavedEmp = empSer.save(emp);
+
+		return dBSavedEmp;
 	}
 
 }
