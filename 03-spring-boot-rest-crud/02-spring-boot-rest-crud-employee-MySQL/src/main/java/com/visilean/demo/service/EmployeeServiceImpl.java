@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.visilean.demo.dao.EmployeeDAOImpl;
 import com.visilean.demo.entity.Employee;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -18,6 +20,20 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	public List<Employee> findAll() {
 		return empDAO.findAll();
+	}
+
+	public Employee findById(int theID) {
+		return empDAO.findById(theID);
+	}
+
+	@Transactional
+	public Employee save(Employee emp) {
+		return empDAO.save(emp);
+	}
+
+	@Transactional
+	public void delete(int theID) {
+		empDAO.delete(theID);
 	}
 
 }
