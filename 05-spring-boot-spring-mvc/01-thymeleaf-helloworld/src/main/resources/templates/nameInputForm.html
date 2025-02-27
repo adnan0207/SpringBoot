@@ -12,13 +12,21 @@
 
 <body>
 
-<h3>Enter Your Name</h3>
+	<h3>Enter Your Name</h3>
 
-<form th:action="@{/processForm}" method="get">
-	<input type="text" name="name" placeholder="your name">
-	<br>
-	<input type="submit" value="Submit">
-</form>
+	<form th:action="@{/processForm}" method="get">
+		<p>For version 1</p>
+		<input type="text" name="name" placeholder="your name"> <br>
+		<input type="submit" value="Submit">
+	</form>
+
+	<form th:action="@{/processFormVersionTwo}" method="get">
+		<p>For version 2</p>
+		<input type="text" name="name" placeholder="your name"> <br>
+		<input type="submit" value="Submit">
+	</form>
+	
+	
 
 </body>
 
