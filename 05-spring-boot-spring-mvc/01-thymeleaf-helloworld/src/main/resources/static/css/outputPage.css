@@ -1,0 +1,17 @@
+body {
+	background-color: lightblue;
+}
+
+h3 {
+	text-align: center;
+	color: white;
+	margin: 20px;
+	font-size: 24px;
+	font-family: verdana;
+}
+
+p {
+	color: white;
+	text-align: center;
+	margin: 0 auto;
+}

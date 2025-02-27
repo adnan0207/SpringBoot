@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Welcome Page</title>
+
+<!-- reference to css file -->
+<link rel="stylesheet" th:href="@{/css/outputPage.css}">
+
+</head>
+
+<body>
+
+	<h3>Hello from my side</h3>
+
+	<p>
+		Welcome to the page <span th:text="${param.name}"></span>
+	</p>
+
+</body>
+
+</html>

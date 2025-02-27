@@ -1,0 +1,25 @@
+body {
+	background-color: lightblue;
+}
+
+h3 {
+	text-align: center;
+	color: white;
+	margin: 20px;
+	font-size: 24px;
+	font-family: verdana;
+}
+
+input[type="text"] {
+	display: block;
+	margin: 0 auto 15px auto;
+	border: 1px solid black;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+input[type="submit"] {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+}
