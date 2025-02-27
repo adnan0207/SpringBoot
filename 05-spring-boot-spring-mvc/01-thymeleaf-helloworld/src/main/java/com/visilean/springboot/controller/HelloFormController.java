@@ -3,6 +3,7 @@ package com.visilean.springboot.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -39,6 +40,21 @@ public class HelloFormController {
 		model.addAttribute("message", result);
 		
 		return "nameOutputVersionTwo";
+	}
+	
+	@RequestMapping("/processFormVersionThree")
+	public String processFormVersionThree(@RequestParam("name") String inputName, Model model) {
+		
+		// convert the name to all caps
+		inputName = inputName.toUpperCase();
+		
+		// creating message
+		String result = "HEY my friend " + inputName + " from v3.";
+		
+		// adding message to model
+		model.addAttribute("newMessage", result);
+		
+		return "nameOutputVersionThree";
 	}
 	
 	
