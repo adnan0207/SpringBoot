@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
 <title>Thymeleaf DEMO</title>
+
+<!-- reference to css file -->
+<link rel="stylesheet" th:href="@{/css/demo.css}">
+
 </head>
+
 <body>
+
 	<h1>Hello World</h1>
-	<p>Current data and time is : </p>
-	<p th:text="${theDate}"></p>
+
+	<p class="funny">Current data and time is :</p>
+	<p class="funny" th:text="${theDate}"></p>
+
 </body>
+
 </html>

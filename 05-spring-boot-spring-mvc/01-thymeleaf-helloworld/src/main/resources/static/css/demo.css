@@ -1,0 +1,14 @@
+body {
+	background-color: lightblue;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	font-family: verdana;
+}
+
+.funny {
+	font-style: italic;
+	color: green;
+}
