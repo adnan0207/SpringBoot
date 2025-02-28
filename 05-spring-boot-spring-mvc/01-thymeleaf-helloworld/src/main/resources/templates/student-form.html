@@ -22,9 +22,8 @@
 			</select>
 			<h3>Which Programming Language Do You Know</h3>
 			<div>
-				<input type="radio" th:field="*{programmingLanguage}" th:value="Go" th:text="Go">	
-				<input type="radio" th:field="*{programmingLanguage}" th:value="Java" th:text="Java">
-				<input type="radio" th:field="*{programmingLanguage}" th:value="Python" th:text="Python">
+				<input type="radio" th:field="*{programmingLanguage}" 
+					th:each="tempLanguage : ${languages}" th:value="${tempLanguage}" th:text="${tempLanguage}">	
 			</div>
 			<br>
 			<input type="submit" value="Submit">
