@@ -22,4 +22,6 @@ input[type="submit"] {
 	display: block;
 	text-align: center;
 	margin: 0 auto 15px;
+    width: 13%;
+    height: 43px;
 }
