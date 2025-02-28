@@ -2,6 +2,8 @@ package com.visilean.springboot.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -12,20 +14,20 @@ public class HelloFormController {
 
 	// method to show html form
 	
-	@RequestMapping("/showForm")
+	@GetMapping("/showForm")
 	public String showForm() {
 		return "nameInputForm";
 	}
 	
 	// method to process html form
-	@RequestMapping("/processForm")
+	@PostMapping("/processForm")
 	public String processForm() {
 		return "nameOutputForm";
 	}
 	
 	
 	// need a controller method to read the form data and add that data to the model
-	@RequestMapping("/processFormVersionTwo")
+	@PostMapping("/processFormVersionTwo")
 	public String letsShout(HttpServletRequest req, Model model) {
 		// read the request parameter from the HTML form
 		String theName = req.getParameter("name");
@@ -42,7 +44,7 @@ public class HelloFormController {
 		return "nameOutputVersionTwo";
 	}
 	
-	@RequestMapping("/processFormVersionThree")
+	@PostMapping("/processFormVersionThree")
 	public String processFormVersionThree(@RequestParam("name") String inputName, Model model) {
 		
 		// convert the name to all caps

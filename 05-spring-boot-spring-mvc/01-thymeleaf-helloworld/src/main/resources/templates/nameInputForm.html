@@ -14,19 +14,19 @@
 
 	<h3>Enter Your Name</h3>
 
-	<form th:action="@{/processForm}" method="get">
+	<form th:action="@{/processForm}" method="post">
 		<p>For version 1</p>
 		<input type="text" name="name" placeholder="your name"> <br>
 		<input type="submit" value="Submit">
 	</form>
 
-	<form th:action="@{/processFormVersionTwo}" method="get">
+	<form th:action="@{/processFormVersionTwo}" method="post">
 		<p>For version 2</p>
 		<input type="text" name="name" placeholder="your name"> <br>
 		<input type="submit" value="Submit">
 	</form>
 	
-	<form th:action="@{/processFormVersionThree}" method="get">
+	<form th:action="@{/processFormVersionThree}" method="post">
 		<p>For version 3</p>
 		<input type="text" name="name" placeholder="your name"> <br>
 		<input type="submit" value="Submit">
