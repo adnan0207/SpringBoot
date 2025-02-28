@@ -1,5 +1,8 @@
 package com.visilean.springboot.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +13,9 @@ import com.visilean.springboot.model.Student;
 
 @Controller
 public class StudentController {
+	
+	@Value("${countries}")
+	List<String> listOfCountries;
 
 	@GetMapping("/showStudentForm")
 	public String showForm(Model model) {
@@ -19,6 +25,9 @@ public class StudentController {
 		
 		// adding student object to model
 		model.addAttribute("student", stuObj);
+		
+		// adding list of countries to the model
+		model.addAttribute("countries", listOfCountries);
 		
 		return "student-form";
 	}
