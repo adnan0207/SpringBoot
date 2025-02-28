@@ -21,10 +21,5 @@ input[type="text"] {
 input[type="submit"] {
 	display: block;
 	text-align: center;
-	margin: 0 auto;
-}
-
-p {
-	display: block;
-	margin: 0 auto;
+	margin: 0 auto 15px;
 }
