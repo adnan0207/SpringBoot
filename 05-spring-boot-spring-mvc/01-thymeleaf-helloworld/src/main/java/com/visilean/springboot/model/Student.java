@@ -5,6 +5,7 @@ public class Student {
 	private String firstName;
 	private String lastName;
 	private String country;
+	private String programmingLanguage;
 	
 	public Student() {
 	}
@@ -31,6 +32,14 @@ public class Student {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public String getProgrammingLanguage() {
+		return programmingLanguage;
+	}
+
+	public void setProgrammingLanguage(String programmingLanguage) {
+		this.programmingLanguage = programmingLanguage;
 	}
 
 }
