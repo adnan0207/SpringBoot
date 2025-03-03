@@ -27,10 +27,16 @@
 		<p>
 			<span th:text="${student.firstName} + ' fav programming language is ' + ${student.programmingLanguage}" ></span>
 		</p>
-
+		
 		<p>
-			<span th:text="${student.firstName} + ' fav operating systems : ' + ${student.favoriteSystems}" ></span>
+			<span th:text="${student.firstName} + ' fav operating systems : '"></span>
 		</p>
-
+   	
+   		<div>
+   			<ul>
+       			<li th:each="tempSystem : ${student.favoriteSystems}" th:text="${tempSystem}"></li>
+   			</ul>
+		</div>
+		
 	</body>
 </html>	
