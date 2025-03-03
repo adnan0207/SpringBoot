@@ -14,9 +14,11 @@ public class Customer {
 	@Size(min = 1, message = "is required")
 	private String lastName;
 	
+	@NotNull(message = "is required")
 	@Min(value = 0, message = "must be greater than or equal to Zero")
 	@Max(value = 10, message = "must be smaller than or equal to Ten")
-	private int freePasses;
+	private Integer freePasses;		// instead of using the primitive type making it wrapper because if our field is blank or has spaces
+									// then they'll actually trim it to null using that string trimming editor that we've added before.
 	
 	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Only 5 digits/characters")
 	private String postalCode;
@@ -38,11 +40,11 @@ public class Customer {
 		this.lastName = lastName;
 	}
 	
-	public int getFreePasses() {
+	public Integer getFreePasses() {
 		return freePasses;
 	}
 	
-	public void setFreePasses(int freePasses) {
+	public void setFreePasses(Integer freePasses) {
 		this.freePasses = freePasses;
 	}
 
