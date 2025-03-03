@@ -1,11 +1,14 @@
 package com.visilean.springboot.model;
 
+import java.util.List;
+
 public class Student {
 	
 	private String firstName;
 	private String lastName;
 	private String country;
 	private String programmingLanguage;
+	private List<String> favoriteSystems;
 	
 	public Student() {
 	}
@@ -40,6 +43,14 @@ public class Student {
 
 	public void setProgrammingLanguage(String programmingLanguage) {
 		this.programmingLanguage = programmingLanguage;
+	}
+
+	public List<String> getFavoriteSystems() {
+		return favoriteSystems;
+	}
+
+	public void setFavoriteSystems(List<String> favoriteSystems) {
+		this.favoriteSystems = favoriteSystems;
 	}
 
 }
