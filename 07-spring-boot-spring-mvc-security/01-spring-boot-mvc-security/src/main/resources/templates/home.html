@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhmtl">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<head>
 		<meta charset="UTF-8">
 		<title>Home Page</title>
@@ -16,6 +16,28 @@
         <p>User : <span sec:authentication="principal.username"></span> </p>
         <p>Role(s) : <span sec:authentication="principal.authorities"></span> </p>
 	    
+        <hr class="border border-primary border-3 opacity-75">
+
+		<!-- add a link to point to /leaders ... this is only for managers -->
+		
+		<p class="mt-4 p-3 bg-light border rounded-3 shadow-sm">
+		    <a th:href="@{/leaders}" class="btn btn-primary">
+        		Leadership Meeting
+    		</a>
+    		<span class="ms-3 badge bg-warning text-dark">Only for Manager peeps</span>
+		</p>
+
+		<!-- add a link to point to /systems ... this is only for managers -->
+		
+		<p class="mt-4 p-3 bg-light border rounded-3 shadow-sm">
+		    <a th:href="@{/systems}" class="btn btn-primary">
+        		IT System Meeting
+    		</a>
+    		<span class="ms-3 badge bg-warning text-dark">Only for Admin peeps</span>
+		</p>
+
+        <hr class="border border-primary border-3 opacity-75">
+
 	    <form action="#" th:action="@{/logout}" method="post">
     		<button type="submit" class="btn btn-danger">Logout</button>
     	</form>
