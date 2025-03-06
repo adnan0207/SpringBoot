@@ -14,9 +14,15 @@
         <p class="h4 mb-4">Please enter your details</p>
         
         <form action="#" th:action="@{/authenticateTheUser}" method="post">
-        	<p>User name : <input type="text" name="username"> </p>
-        	<p>Password : <input type="password" name="password"> </p>
+        	
+        	<div th:if="${param.error}"> 
+ 				<i style="color: red">Sorry! You entered invalid username/password.</i> 
+			</div> 
+        	
+        	<p>username : <input type="text" name="username"> </p>
+        	<p>password : <input type="password" name="password"> </p>
         	<input type="submit" name="Login" value="Login">
+        	
         </form>
     </div>
 	</body>
