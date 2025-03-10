@@ -8,16 +8,16 @@ import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 
 @Repository
-public class AppDAOImpl implements AppDAO{
+public class AppDAOImpl implements AppDAO {
 
-	// define field for entity manager 
+	// define field for entity manager
 	private EntityManager entityManager;
-	
+
 	// inject entity manager using constructor injection
 	public AppDAOImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
-	
+
 	@Override
 	@Transactional
 	public void save(Instructor theInstructor) {
@@ -29,5 +29,14 @@ public class AppDAOImpl implements AppDAO{
 		return entityManager.find(Instructor.class, theId);
 	}
 
+	@Override
+	@Transactional
+	public void deleteInstructorByID(int theId) {
+		// retrieve the instructor
+		Instructor tempInstructor = entityManager.find(Instructor.class, theId);
+
+		// delete the instructor
+		entityManager.remove(tempInstructor);
+	}
 
 }
