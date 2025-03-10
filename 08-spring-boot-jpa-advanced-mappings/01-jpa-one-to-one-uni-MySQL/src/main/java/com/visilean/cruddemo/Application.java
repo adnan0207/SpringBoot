@@ -19,8 +19,21 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			createInstructor(appDAO);
+//			createInstructor(appDAO);
+			findInstructor(appDAO);
 		};
+	}
+
+	private void findInstructor(AppDAO appDAO) {
+
+		int theId = 1;
+
+		System.out.println("Instructor with id : " + theId);
+
+		Instructor tempInstructor = appDAO.findInstructorById(theId);
+
+		System.out.println("Your instructor is : " + tempInstructor);
+		System.out.println("Associated instructorDetails only : " + tempInstructor.getInstructorDetail());
 	}
 
 	private void createInstructor(AppDAO appDAO) {
