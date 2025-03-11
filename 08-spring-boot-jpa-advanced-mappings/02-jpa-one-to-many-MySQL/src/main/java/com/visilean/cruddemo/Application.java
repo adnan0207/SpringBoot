@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.visilean.cruddemo.dao.AppDAO;
+import com.visilean.cruddemo.entity.Course;
 import com.visilean.cruddemo.entity.Instructor;
 import com.visilean.cruddemo.entity.InstructorDetail;
 
@@ -23,8 +24,42 @@ public class Application {
 //			findInstructor(appDAO);
 //			deleteInstructor(appDAO);
 //			findInstructorDetail(appDAO);
-			deleteInstructorDetail(appDAO);
+//			deleteInstructorDetail(appDAO);
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+		
+		// create the instructor
+		Instructor tempInstructor = new Instructor("Adnan", "Khan", "adnan@gmail.com");
+		
+		// create the instructor detail
+		InstructorDetail tempInstructorDetail = new InstructorDetail("YTadnan", "football");
+		
+		// associate the objects
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+		
+		// create some courses
+		Course tempCourse1 = new Course("Java Coding");
+		Course tempCourse2 = new Course("Piano : in 10 Days");
+		Course tempCourse3 = new Course("Football : panelty shooting");
+		
+		// add courses to instructor
+		tempInstructor.add(tempCourse1);
+		tempInstructor.add(tempCourse2);
+		tempInstructor.add(tempCourse3);
+		
+		// saving the instructor
+		
+		// NOTE : This will also save the courses because of CascadeType.PERSIST
+		
+		System.out.println("Saving Instructor : " + tempInstructor);
+		System.out.println("The Course : " + tempInstructor.getCourses());
+		
+		appDAO.save(tempInstructor);
+		
+		System.out.println("DONE!");
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
