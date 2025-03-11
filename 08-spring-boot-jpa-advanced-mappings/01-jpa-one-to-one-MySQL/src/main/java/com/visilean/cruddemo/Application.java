@@ -22,8 +22,18 @@ public class Application {
 //			createInstructor(appDAO);
 //			findInstructor(appDAO);
 //			deleteInstructor(appDAO);
-			findInstructorDetail(appDAO);
+//			findInstructorDetail(appDAO);
+			deleteInstructorDetail(appDAO);
 		};
+	}
+
+	private void deleteInstructorDetail(AppDAO appDAO) {
+		int theId = 2;
+		System.out.println("Deleting the instructor with id : " + theId);
+		
+		appDAO.deleteInstructorDetailByID(theId);
+		
+		System.out.println("DONE!");
 	}
 
 	private void findInstructorDetail(AppDAO appDAO) {
