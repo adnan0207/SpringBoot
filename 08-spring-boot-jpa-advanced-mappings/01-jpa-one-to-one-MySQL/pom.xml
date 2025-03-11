@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.visilean</groupId>
-	<artifactId>01-jpa-one-to-one-uni-PostgreSQL</artifactId>
+	<artifactId>01-jpa-one-to-one-MySQL</artifactId>
 	<version>1.0.0</version>
-	<name>01-jpa-one-to-one-uni-PostgreSQL</name>
-	<description>one to one uni</description>
+	<name>01-jpa-one-to-one-MySQL</name>
+	<description>one to one</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -36,8 +36,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
