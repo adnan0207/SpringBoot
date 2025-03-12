@@ -30,8 +30,26 @@ public class Application {
 //			createInstructorWithCourses(appDAO);
 //			findInstructorWithCourse(appDAO);
 //			findCoursesForInstructor(appDAO);
-			findInstructorWithCoursesJoinFetch(appDAO);
+//			findInstructorWithCoursesJoinFetch(appDAO);
+			updateInstructor(appDAO);
 		};
+	}
+
+	private void updateInstructor(AppDAO appDAO) {
+		int theId = 1;
+		
+		// find the instructor
+		System.out.println("Finding Instructor with id : " + theId);
+		Instructor tempInstructor = appDAO.findInstructorById(theId);
+
+		// update the Instructor
+		System.out.println("Updating the instructor with id : " + theId);
+		
+		tempInstructor.setEmail("adnan123@email.com");
+		
+		appDAO.update(tempInstructor);
+		
+		System.out.println("DONE!");
 	}
 
 	private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
