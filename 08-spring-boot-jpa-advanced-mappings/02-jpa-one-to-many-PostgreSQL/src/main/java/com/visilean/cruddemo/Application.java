@@ -31,8 +31,26 @@ public class Application {
 //			findInstructorWithCourse(appDAO);
 //			findCoursesForInstructor(appDAO);
 //			findInstructorWithCoursesJoinFetch(appDAO);
-			updateInstructor(appDAO);
+//			updateInstructor(appDAO);
+			updateCourse(appDAO);
 		};
+	}
+
+	private void updateCourse(AppDAO appDAO) {
+		int theId = 1;
+		
+		// finding the course
+		System.out.println("Finding course with id : " + theId);
+		Course tempCourse = appDAO.findCourseById(theId);
+		
+		// update the course
+		System.out.println("Updating the course with id : " + theId);
+		
+		tempCourse.setTitle("DevOps INTRODUCTION");
+		
+		appDAO.update(tempCourse);
+		
+		System.out.println("DONE!");
 	}
 
 	private void updateInstructor(AppDAO appDAO) {
