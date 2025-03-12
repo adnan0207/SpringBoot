@@ -24,7 +24,7 @@ public class Application {
 		return runner -> {
 //			createInstructor(appDAO);
 //			findInstructor(appDAO);
-			deleteInstructor(appDAO);
+//			deleteInstructor(appDAO);
 //			findInstructorDetail(appDAO);
 //			deleteInstructorDetail(appDAO);
 //			createInstructorWithCourses(appDAO);
@@ -33,11 +33,22 @@ public class Application {
 //			findInstructorWithCoursesJoinFetch(appDAO);
 //			updateInstructor(appDAO);
 //			updateCourse(appDAO);
+			deleteCourse(appDAO);
 		};
 	}
 
+	private void deleteCourse(AppDAO appDAO) {
+		int theId = 1;
+		
+		System.out.println("Deleting course with id : " + theId);
+		
+		appDAO.deleteCourseById(theId);
+		
+		System.out.println("DONE!");
+	}
+
 	private void updateCourse(AppDAO appDAO) {
-		int theId = 10;
+		int theId = 1;
 		
 		// finding the course
 		System.out.println("Finding course with id : " + theId);
