@@ -1,11 +1,15 @@
 package com.visilean.cruddemo.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
+import com.visilean.cruddemo.entity.Course;
 import com.visilean.cruddemo.entity.Instructor;
 import com.visilean.cruddemo.entity.InstructorDetail;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -57,6 +61,17 @@ public class AppDAOImpl implements AppDAO {
 		
 		// delete the instructor detail
 		entityManager.remove(tempInstructorDetail);
+	}
+
+	@Override
+	public List<Course> findCoursesByInstructorId(int theId) {
+		// create the query
+		TypedQuery<Course> query = entityManager.createQuery("from Course where instructor.id = :data", Course.class);
+		query.setParameter("data", theId);
+		
+		// execute the query
+		List<Course> courses = query.getResultList();
+		return courses;
 	}
 
 }

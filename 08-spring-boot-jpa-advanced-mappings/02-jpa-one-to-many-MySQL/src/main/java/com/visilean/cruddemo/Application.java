@@ -1,5 +1,7 @@
 package com.visilean.cruddemo;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,8 +28,31 @@ public class Application {
 //			findInstructorDetail(appDAO);
 //			deleteInstructorDetail(appDAO);
 //			createInstructorWithCourses(appDAO);
-			findInstructorWithCourse(appDAO);
+//			findInstructorWithCourse(appDAO);
+			findCoursesForInstructor(appDAO);
 		};
+	}
+
+	private void findCoursesForInstructor(AppDAO appDAO) {
+		int theId = 1;
+		
+		// find the instructor
+		System.out.println("Finding Instructor with id : " + theId);
+		
+		Instructor tempInstructor = appDAO.findInstructorById(theId);
+		
+		System.out.println("tempInstructor : " + tempInstructor);
+		
+		// find courses for the instructor
+		System.out.println("Find courses for instructor with id : " + theId);
+		List<Course> courses = appDAO.findCoursesByInstructorId(theId);
+		
+		// associate the object with courses
+		tempInstructor.setCourses(courses);
+		
+		System.out.println("The associated courses : " + tempInstructor.getCourses());
+
+		System.out.println("DONE!");
 	}
 
 	private void findInstructorWithCourse(AppDAO appDAO) {
