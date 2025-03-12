@@ -24,7 +24,7 @@ public class Application {
 		return runner -> {
 //			createInstructor(appDAO);
 //			findInstructor(appDAO);
-//			deleteInstructor(appDAO);
+			deleteInstructor(appDAO);
 //			findInstructorDetail(appDAO);
 //			deleteInstructorDetail(appDAO);
 //			createInstructorWithCourses(appDAO);
@@ -32,12 +32,12 @@ public class Application {
 //			findCoursesForInstructor(appDAO);
 //			findInstructorWithCoursesJoinFetch(appDAO);
 //			updateInstructor(appDAO);
-			updateCourse(appDAO);
+//			updateCourse(appDAO);
 		};
 	}
 
 	private void updateCourse(AppDAO appDAO) {
-		int theId = 1;
+		int theId = 10;
 		
 		// finding the course
 		System.out.println("Finding course with id : " + theId);
