@@ -11,6 +11,7 @@ import com.visilean.cruddemo.dao.AppDAO;
 import com.visilean.cruddemo.entity.Course;
 import com.visilean.cruddemo.entity.Instructor;
 import com.visilean.cruddemo.entity.InstructorDetail;
+import com.visilean.cruddemo.entity.Review;
 
 @SpringBootApplication
 public class Application {
@@ -22,8 +23,28 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-
+			createCourseAndReviews(appDAO);
 		};
+	}
+
+	private void createCourseAndReviews(AppDAO appDAO) {
+		// create a course
+		Course tempCourse = new Course("Pacman - How to beat the game");
+		
+		// add some reviews
+		tempCourse.addReview(new Review("Great course, I won on my first try"));
+		tempCourse.addReview(new Review("Best course, Loved it"));
+		tempCourse.addReview(new Review("Bad, you are an idiot"));
+		
+		// save the course
+		// just saving the course will automatically save the reviews also cause we are using cascade all
+		System.out.println("Saving the course");
+		System.out.println(tempCourse);
+		System.out.println(tempCourse.getReviews());
+		
+		appDAO.save(tempCourse);
+		
+		System.out.println("DONE!");
 	}
 
 	private void deleteCourse(AppDAO appDAO) {
