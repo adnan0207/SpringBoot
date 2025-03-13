@@ -23,8 +23,23 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			createCourseAndReviews(appDAO);
+//			createCourseAndReviews(appDAO);
+			retrieveCourseAndReviews(appDAO); 
 		};
+	}
+
+	private void retrieveCourseAndReviews(AppDAO appDAO) {
+		// get course and reviews
+		int theId = 11;
+		Course tempCourse = appDAO.findCourseAndReviewsByCourseId(theId);
+		
+		// print the course
+		System.out.println(tempCourse);
+		
+		// print the review
+		System.out.println(tempCourse.getReviews());
+		
+		System.out.println("DONE!");
 	}
 
 	private void createCourseAndReviews(AppDAO appDAO) {
