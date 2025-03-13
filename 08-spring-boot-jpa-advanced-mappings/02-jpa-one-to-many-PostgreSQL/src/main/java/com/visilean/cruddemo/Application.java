@@ -24,8 +24,19 @@ public class Application {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
 //			createCourseAndReviews(appDAO);
-			retrieveCourseAndReviews(appDAO); 
+//			retrieveCourseAndReviews(appDAO); 
+			deleteCourseAndReviews(appDAO);
 		};
+	}
+
+	private void deleteCourseAndReviews(AppDAO appDAO) {
+		int theId = 3;
+		System.out.println("Deleting course with id : " + theId);
+		
+		// this will delete the course as well as reviews also cause we have cascade type all
+		appDAO.deleteCourseById(theId);
+		
+		System.out.println("DONE!");
 	}
 
 	private void retrieveCourseAndReviews(AppDAO appDAO) {
