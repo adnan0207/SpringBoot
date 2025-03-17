@@ -25,8 +25,19 @@ public class Application {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
 //			createCourseAndStudent(appDAO);
-			findCourseAndStudents(appDAO);
+//			findCourseAndStudents(appDAO);
+			findStudentAndCourses(appDAO);
 		};
+	}
+
+	private void findStudentAndCourses(AppDAO appDAO) {
+		int theId = 2;
+		Student tempStudent = appDAO.findStudentAndCoursesByStudentId(theId);
+		
+		System.out.println("Loaded Student : " + tempStudent);
+		System.out.println("Associated Courses : " + tempStudent.getCourses());
+		
+		System.out.println("DONE!");
 	}
 
 	private void findCourseAndStudents(AppDAO appDAO) {

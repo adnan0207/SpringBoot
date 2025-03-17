@@ -5,6 +5,7 @@ import java.util.List;
 import com.visilean.cruddemo.entity.Course;
 import com.visilean.cruddemo.entity.Instructor;
 import com.visilean.cruddemo.entity.InstructorDetail;
+import com.visilean.cruddemo.entity.Student;
 
 public interface AppDAO {
 
@@ -35,5 +36,7 @@ public interface AppDAO {
 	public Course findCourseAndReviewsByCourseId(int theId);
 	
 	public Course findCourseAndStudentsByCourseId(int theId);
+
+	public Student findStudentAndCoursesByStudentId(int theId);
 
 }
