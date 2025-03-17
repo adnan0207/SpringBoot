@@ -12,6 +12,7 @@ import com.visilean.cruddemo.entity.Course;
 import com.visilean.cruddemo.entity.Instructor;
 import com.visilean.cruddemo.entity.InstructorDetail;
 import com.visilean.cruddemo.entity.Review;
+import com.visilean.cruddemo.entity.Student;
 
 @SpringBootApplication
 public class Application {
@@ -23,8 +24,30 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-
+			createCourseAndStudent(appDAO);
 		};
+	}
+
+	private void createCourseAndStudent(AppDAO appDAO) {
+		
+		// create course
+		Course tempCourse = new Course("JAVA : Learn Java");
+		
+		// create student
+		Student tempStu1 = new Student("Adnan", "Khan", "adnan@gmail.com");
+		Student tempStu2 = new Student("Abhay", "Rajawat", "abhay@gmail.com");
+		
+		// add student to course
+		tempCourse.addStudent(tempStu1);
+		tempCourse.addStudent(tempStu2);
+		
+		// save the course and associated student
+		System.out.println("Saving the course : " + tempCourse);
+		System.out.println("Associated Students : " + tempCourse.getStudents());
+		
+		appDAO.save(tempCourse);
+		
+		System.out.println("DONE!");
 	}
 
 	private void deleteCourseAndReviews(AppDAO appDAO) {
