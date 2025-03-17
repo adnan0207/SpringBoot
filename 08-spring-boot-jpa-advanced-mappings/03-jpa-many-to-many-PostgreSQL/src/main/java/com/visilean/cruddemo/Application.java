@@ -27,10 +27,20 @@ public class Application {
 //			createCourseAndStudent(appDAO);
 //			findCourseAndStudents(appDAO);
 //			findStudentAndCourses(appDAO);
-//			addMoreCoursesForStudent(appDAO);
-			deleteCourse(appDAO);
+//			deleteCourse(appDAO);
+			deleteStudent(appDAO);
 		};
 	}
+
+	private void deleteStudent(AppDAO appDAO) {
+		int theId = 1;
+		System.out.println("Deleting the student with id : " + theId);
+		
+		appDAO.deleteStudentById(theId);
+		
+		System.out.println("DONE!");
+	}
+
 
 	private void addMoreCoursesForStudent(AppDAO appDAO) {
 		int theId = 2;
