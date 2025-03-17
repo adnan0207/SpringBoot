@@ -24,8 +24,19 @@ public class Application {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
-			createCourseAndStudent(appDAO);
+//			createCourseAndStudent(appDAO);
+			findCourseAndStudents(appDAO);
 		};
+	}
+
+	private void findCourseAndStudents(AppDAO appDAO) {
+		int theId = 1;
+		Course tempCourse = appDAO.findCourseAndStudentsByCourseId(theId);
+		
+		System.out.println("Loaded Course : " + tempCourse);
+		System.out.println("Associated Students : " + tempCourse.getStudents());
+		
+		System.out.println("DONE!");
 	}
 
 	private void createCourseAndStudent(AppDAO appDAO) {

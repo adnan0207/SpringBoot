@@ -33,5 +33,7 @@ public interface AppDAO {
 	public void save(Course theCourse);
 	
 	public Course findCourseAndReviewsByCourseId(int theId);
+	
+	public Course findCourseAndStudentsByCourseId(int theId);
 
 }
