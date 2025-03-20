@@ -29,7 +29,7 @@ public class Application {
 
 		// call the business model
 		Account myAccount = new Account();
-		theAccountDAO.addAccount(myAccount);
+		theAccountDAO.addAccount(myAccount, true);
 		
 		// call the membership business model
 		theMembershipDAO.addMember();

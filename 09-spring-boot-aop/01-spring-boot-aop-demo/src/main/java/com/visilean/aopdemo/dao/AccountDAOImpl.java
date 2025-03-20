@@ -8,7 +8,7 @@ import com.visilean.aopdemo.entity.Account;
 public class AccountDAOImpl implements AccountDAO {
 
 	@Override
-	public void addAccount(Account acc) {
+	public void addAccount(Account acc, boolean vipFlag) {
 		System.out.println(getClass() + " : Doing my DB work : Adding an account");
 	}
 

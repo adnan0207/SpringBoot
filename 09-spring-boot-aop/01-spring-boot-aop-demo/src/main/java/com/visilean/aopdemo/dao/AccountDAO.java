@@ -4,6 +4,6 @@ import com.visilean.aopdemo.entity.Account;
 
 public interface AccountDAO {
 	
-	public void addAccount(Account acc);
+	public void addAccount(Account acc, boolean vipFlag);
 
 }
