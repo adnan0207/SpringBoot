@@ -30,7 +30,7 @@ public class Application {
 		theAccountDAO.addAccount();
 		
 		// call the membership business model
-		theMembershipDAO.addAccount();
+		theMembershipDAO.addMember();
 	}
 
 }
