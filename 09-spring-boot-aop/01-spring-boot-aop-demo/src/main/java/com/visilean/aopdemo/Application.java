@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.visilean.aopdemo.dao.AccountDAO;
 import com.visilean.aopdemo.dao.MembershipDAO;
+import com.visilean.aopdemo.entity.Account;
 
 @SpringBootApplication
 public class Application {
@@ -27,7 +28,8 @@ public class Application {
 	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 
 		// call the business model
-		theAccountDAO.addAccount();
+		Account myAccount = new Account();
+		theAccountDAO.addAccount(myAccount);
 		
 		// call the membership business model
 		theMembershipDAO.addMember();
