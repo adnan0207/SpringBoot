@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.visilean.aopdemo.dao.AccountDAO;
+import com.visilean.aopdemo.dao.MembershipDAO;
 
 @SpringBootApplication
 public class Application {
@@ -15,20 +16,21 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO) {
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 
 		return runner -> {
-			demoTheBeforeAdvice(theAccountDAO);
+			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 		};
 
 	}
 
-	private void demoTheBeforeAdvice(AccountDAO theAccountDAO) {
+	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 
 		// call the business model
 		theAccountDAO.addAccount();
-		System.out.println("\n Calling it again");
-		theAccountDAO.addAccount();
+		
+		// call the membership business model
+		theMembershipDAO.addAccount();
 	}
 
 }
