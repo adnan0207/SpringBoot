@@ -30,9 +30,11 @@ public class Application {
 		// call the business model
 		Account myAccount = new Account();
 		theAccountDAO.addAccount(myAccount, true);
+		theAccountDAO.doWork();
 		
 		// call the membership business model
 		theMembershipDAO.addMember();
+		theMembershipDAO.goToSleep();
 	}
 
 }

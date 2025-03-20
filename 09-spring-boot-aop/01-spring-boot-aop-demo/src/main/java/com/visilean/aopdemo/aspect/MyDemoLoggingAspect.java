@@ -12,7 +12,14 @@ public class MyDemoLoggingAspect {
 	
 	// @Before advice
 	
-	@Before("execution(public * add*(..))")
+//	 For param-pattern
+//	 () - matches a method with no arguments
+//	 (*) - matches a method with one argument of any type
+//	 (..) - matches a method with 0 or more arguments of any type
+	
+	// public (*)->return type (com.visilean.aopdemo.dao)->package name . (*)->any class . (*)->any method ((..))->any param
+	
+	@Before("execution(public * com.visilean.aopdemo.dao.*.*(..))")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n ====> Executing @Before advice on method");
 	}
