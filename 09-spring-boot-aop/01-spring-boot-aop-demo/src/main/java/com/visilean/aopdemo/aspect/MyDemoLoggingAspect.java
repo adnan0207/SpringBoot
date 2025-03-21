@@ -2,6 +2,7 @@ package com.visilean.aopdemo.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Aspect
@@ -19,7 +20,11 @@ public class MyDemoLoggingAspect {
 	
 	// public (*)->return type (com.visilean.aopdemo.dao)->package name . (*)->any class . (*)->any method ((..))->any param
 	
-	@Before("execution(public * com.visilean.aopdemo.dao.*.*(..))")
+	@Pointcut("execution(public * com.visilean.aopdemo.dao.*.*(..))")
+	private void forDaoPackage() {
+	}
+	
+	@Before("forDaoPackage()")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n ====> Executing @Before advice on method");
 	}
