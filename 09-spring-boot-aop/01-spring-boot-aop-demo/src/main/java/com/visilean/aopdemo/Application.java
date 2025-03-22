@@ -32,6 +32,13 @@ public class Application {
 		theAccountDAO.addAccount(myAccount, true);
 		theAccountDAO.doWork();
 		
+		// calling the account DAO getter and setter methods
+		theAccountDAO.setName("hehehehe");
+		theAccountDAO.setServiceName("hoohoohoohoo");
+		
+		theAccountDAO.getName();
+		theAccountDAO.getServiceName();
+		
 		// call the membership business model
 		theMembershipDAO.addMember();
 		theMembershipDAO.goToSleep();
