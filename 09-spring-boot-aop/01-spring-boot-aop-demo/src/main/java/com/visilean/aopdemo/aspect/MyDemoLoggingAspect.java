@@ -1,7 +1,9 @@
 package com.visilean.aopdemo.aspect;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -11,7 +13,11 @@ import org.springframework.stereotype.Component;
 public class MyDemoLoggingAspect {
 
 	@Before("com.visilean.aopdemo.aspect.AopExpressions.forDaoPackageNoGetterSetter()")
-	public void beforeAddAccountAdvice() {
+	public void beforeAddAccountAdvice(JoinPoint theJoinPoint) {
 		System.out.println(" ====> Executing @Before advice on method");
+
+		// display the method signature
+		MethodSignature methodSignature = (MethodSignature)theJoinPoint.getSignature();
+		System.out.println("Method : " + methodSignature);
 	}
 }
