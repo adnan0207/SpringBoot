@@ -29,6 +29,8 @@ public class Application {
 
 		// call the business model
 		Account myAccount = new Account();
+		myAccount.setName("Adnan");
+		myAccount.setLevel("Gold");
 		theAccountDAO.addAccount(myAccount, true);
 		theAccountDAO.doWork();
 		
