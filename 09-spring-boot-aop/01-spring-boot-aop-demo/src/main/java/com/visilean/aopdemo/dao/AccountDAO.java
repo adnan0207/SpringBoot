@@ -1,5 +1,7 @@
 package com.visilean.aopdemo.dao;
 
+import java.util.List;
+
 import com.visilean.aopdemo.entity.Account;
 
 public interface AccountDAO {
@@ -15,5 +17,7 @@ public interface AccountDAO {
 	public String getServiceName();
 	
 	public void setServiceName(String serviceName);
+	
+	public List<Account> findAccounts();
 
 }

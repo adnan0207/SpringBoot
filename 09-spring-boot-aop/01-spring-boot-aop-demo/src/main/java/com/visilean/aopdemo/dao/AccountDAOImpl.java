@@ -1,5 +1,8 @@
 package com.visilean.aopdemo.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.visilean.aopdemo.entity.Account;
@@ -40,6 +43,25 @@ public class AccountDAOImpl implements AccountDAO {
 	public void setServiceName(String serviceName) {
 		System.out.println(getClass() + " inside of setServiceName() Method");
 		this.serviceName = serviceName;
+	}
+
+	@Override
+	public List<Account> findAccounts() {
+		
+		List<Account> myAccounts = new ArrayList<Account>();
+		
+		// create sample accounts
+		Account temp1 = new Account("Adnan", "Platinum");
+		Account temp2 = new Account("Abhay", "Gold");
+		Account temp3 = new Account("Harsh", "Silver");
+		
+		// add them to the list
+		
+		myAccounts.add(temp1);
+		myAccounts.add(temp2);
+		myAccounts.add(temp3);
+		
+		return myAccounts;
 	}
 
 }
