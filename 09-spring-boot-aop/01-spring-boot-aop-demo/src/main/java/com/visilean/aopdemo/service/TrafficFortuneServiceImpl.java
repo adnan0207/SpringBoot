@@ -11,12 +11,20 @@ public class TrafficFortuneServiceImpl implements TrafficFortuneService {
 	public String getFortune() {
 
 		try {
-			TimeUnit.SECONDS.sleep(10);
+			TimeUnit.SECONDS.sleep(5);
 		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
 		}
 
 		return "Expect heavy traffic this morning";
+	}
+
+	@Override
+	public String getFortune(boolean tripWire) {
+		if(tripWire) {
+			throw new RuntimeException("Major Accident! THE HIGHWAY IS CLOSED!");
+		}
+		return getFortune();
 	}
 
 }
