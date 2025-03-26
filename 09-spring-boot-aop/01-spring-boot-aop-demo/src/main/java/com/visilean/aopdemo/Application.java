@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import com.visilean.aopdemo.dao.AccountDAO;
 import com.visilean.aopdemo.dao.MembershipDAO;
 import com.visilean.aopdemo.entity.Account;
+import com.visilean.aopdemo.service.TrafficFortuneService;
 
 @SpringBootApplication
 public class Application {
@@ -19,15 +20,24 @@ public class Application {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO, TrafficFortuneService theTrafficFortuneService) {
 
 		return runner -> {
 //			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 //			demoTheAfterReturningAdvice(theAccountDAO);
 //			demoTheAfterThrowingAdvice(theAccountDAO);
-			demoTheAfterAdvice(theAccountDAO);
+//			demoTheAfterAdvice(theAccountDAO);
+			demoTheAroundAdvice(theTrafficFortuneService);
 		};
 
+	}
+
+	private void demoTheAroundAdvice(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\n Main Program : demoTheAroundAdvice");
+		System.out.println("Calling getFortune method");
+		String fortune = theTrafficFortuneService.getFortune();
+		System.out.println("\n My fortune is : " + fortune);
+		System.out.println("Finished");
 	}
 
 	private void demoTheAfterAdvice(AccountDAO theAccountDAO) {
