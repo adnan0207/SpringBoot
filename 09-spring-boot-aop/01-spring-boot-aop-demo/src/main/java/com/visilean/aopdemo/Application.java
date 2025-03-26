@@ -28,13 +28,25 @@ public class Application {
 //			demoTheAfterThrowingAdvice(theAccountDAO);
 //			demoTheAfterAdvice(theAccountDAO);
 //			demoTheAroundAdvice(theTrafficFortuneService);
-			demoTheAroundAdviceHandelingException(theTrafficFortuneService);
+//			demoTheAroundAdviceHandelingException(theTrafficFortuneService);
+			demoTheAroundAdviceRethrowException(theTrafficFortuneService);
 		};
 
 	}
 
+	private void demoTheAroundAdviceRethrowException(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\n Main Program : demoTheAroundAdviceRethrowException");
+		System.out.println("Calling getFortune method");
+		
+		boolean tripWire = true;
+		String fortune = theTrafficFortuneService.getFortune(tripWire);
+		
+		System.out.println("\n My fortune is : " + fortune);
+		System.out.println("Finished");
+	}
+
 	private void demoTheAroundAdviceHandelingException(TrafficFortuneService theTrafficFortuneService) {
-		System.out.println("\n Main Program : demoTheAroundAdvice");
+		System.out.println("\n Main Program : demoTheAroundAdviceHandelingException");
 		System.out.println("Calling getFortune method");
 		
 		boolean tripWire = true;
